@@ -1,0 +1,66 @@
+nohup: ignoring input
+2018-11-12 20:12:46.216572: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2018-11-12 20:12:46.216658: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2018-11-12 20:12:46.216674: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2018-11-12 20:12:46.216684: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2018-11-12 20:12:46.216694: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+2018-11-12 20:12:46.754402: I tensorflow/core/common_runtime/gpu/gpu_device.cc:955] Found device 0 with properties: 
+name: TITAN X (Pascal)
+major: 6 minor: 1 memoryClockRate (GHz) 1.531
+pciBusID 0000:0d:00.0
+Total memory: 11.90GiB
+Free memory: 11.75GiB
+2018-11-12 20:12:46.754492: I tensorflow/core/common_runtime/gpu/gpu_device.cc:976] DMA: 0 
+2018-11-12 20:12:46.754509: I tensorflow/core/common_runtime/gpu/gpu_device.cc:986] 0:   Y 
+2018-11-12 20:12:46.754525: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1045] Creating TensorFlow device (/gpu:0) -> (device: 0, name: TITAN X (Pascal), pci bus id: 0000:0d:00.0)
+Hyperparameters:
+  LEARNING_RATE_DECAY_FACTOR: 0.5
+  MOVING_AVERAGE_DECAY: 0.9999
+  NPY_DATAROOT: /data4/azam/Datasets/LJSpeech-1.1/trimmed/wavenet_tts
+  NUM_STEPS_RATIO_PER_DECAY: 0.3
+  average_window_len: 256
+  average_window_shift: 256
+  dilation_channels: 128
+  dilations: [1, 2, 4, 8, 16, 32, 1, 2, 4, 8, 16, 32, 1, 2, 4, 8, 16, 32, 1, 2, 4, 8, 16, 32]
+  fft_size: 1024
+  filter_width: 2
+  frame_shift_ms: None
+  gc_enable: False
+  global_cardinality: None
+  global_channel: None
+  hop_size: 256
+  initial_filter_width: 32
+  lc_average: True
+  lc_bias: True
+  lc_causal_conv: False
+  lc_channels: 256
+  lc_conv_layers: 3
+  lc_fw: 5
+  lc_initial_channels: 70
+  lc_overlap: False
+  lc_skip_connection: False
+  min_level_db: -100
+  name: wavenet_tts
+  num_mels: 80
+  quantization_channels: 256
+  ref_level_db: 20
+  residual_channels: 32
+  sample_rate: 16000
+  scalar_input: False
+  silence_threshold: 2
+  skip_channels: 256
+  triphone: False
+  upsample_conditional_features: False
+  upsample_factor: [16, 16]
+  use_biases: True
+Using default logdir: ./logdir/train/2018-11-12T20-11-16
+Trying to restore saved checkpoints from ./logdir/train/24 ...  Checkpoint found: ./logdir/train/24/model.ckpt-199999
+  Global step was: 199999
+  Restoring... Done.
+2018-11-12T20-13-15, step 0 - loss = 0.051515, (0.310 sec/step)
+Traceback (most recent call last):
+  File "train.py", line 387, in <module>
+    main()
+  File "train.py", line 367, in main
+    encoded_shape = sess.run([tf.shape(net.encoded)])
+AttributeError: 'WaveNetModel' object has no attribute 'encoded'
